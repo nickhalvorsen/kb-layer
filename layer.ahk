@@ -7,211 +7,48 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 SetKeyDelay, -1
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Left (n)
 
 $n::
-	if IsCapsLockOn()
-		SendInput, {Left}
+	if IsSecondLayerActive()
+		; Avoid releasing modifiers with {Blind} 
+		SendInput, {Blind}{Left}
 	else
-		SendInput, n
+		SendInput, {Blind}n
 return
-
-$+n::
-	if IsCapsLockOn() {
-		Sendinput, {Shift down}{Left down}
-		keywait, Left
-		Sendinput, {Left up}{Shift up}
-	}
-	else {
-		Sendinput, {Shift down}{n down}
-		keywait, n
-		Sendinput, {n up}{Shift up}
-	}
-return
-
-$^n::
-	if IsCapsLockOn() {
-		Sendinput, {Ctrl down}{Left down}
-		keywait, Left
-		Sendinput, {Left up}{Ctrl up}
-	}
-	else {
-		Sendinput, {Ctrl down}{n down}
-		keywait, n
-		Sendinput, {n up}{Ctrl up}
-	}
-return
-
-$^+n::
-	if IsCapsLockOn() {
-		Sendinput, {Shift down}{Ctrl down}{Left down}
-		keywait, Left
-		Sendinput, {Left up}{Ctrl up}{Shift up}
-	}
-	else {
-		Sendinput, {Shift down}{Ctrl down}{n down}
-		keywait, n
-		Sendinput, {n up}{Ctrl up}{Shift up}
-	}
-return
-
-
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Down (e)
 
 $e::
-	if IsCapsLockOn()
-		SendInput, {Down}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{Down}
 	else
-		SendInput, e
+		SendInput, {Blind}e
 return
-
-$+e::
-	if IsCapsLockOn() {
-		Sendinput, {Shift down}{Down down}
-		keywait, Down
-		Sendinput, {Down up}{Shift up}
-	}
-	else {
-		Sendinput, {Shift down}{e down}
-		keywait, e
-		Sendinput, {e up}{Shift up}
-	}
-return
-
-$^e::
-	if IsCapsLockOn() {
-		Sendinput, {Ctrl down}{Down down}
-		keywait, Down
-		Sendinput, {Down up}{Ctrl up}
-	}
-	else {
-		Sendinput, {Ctrl down}{e down}
-		keywait, e
-		Sendinput, {e up}{Ctrl up}
-	}
-return
-
-$^+e::
-	if IsCapsLockOn() {
-		Sendinput, {Shift down}{Ctrl down}{Down down}
-		keywait, Down
-		Sendinput, {Down up}{Ctrl up}{Shift up}
-	}
-	else {
-		Sendinput, {Shift down}{Ctrl down}{e down}
-		keywait, e
-		Sendinput, {e up}{Ctrl up}{Shift up}
-	}
-return
-
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Right (i)
 
 $i::
-	if IsCapsLockOn()
-		SendInput, {Right}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{Right}
 	else
-		SendInput, i
+		SendInput, {Blind}i
 return
-
-$+i::
-	if IsCapsLockOn() {
-		Sendinput, {Shift down}{Right down}
-		keywait, Right
-		Sendinput, {Right up}{Shift up}
-	}
-	else {
-		Sendinput, {Shift down}{i down}
-		keywait, i
-		Sendinput, {i up}{Shift up}
-	}
-return
-
-$^i::
-	if IsCapsLockOn() {
-		Sendinput, {Ctrl down}{Right down}
-		keywait, Right
-		Sendinput, {Right up}{Ctrl up}
-	}
-	else {
-		Sendinput, {Ctrl down}{i down}
-		keywait, i
-		Sendinput, {i up}{Ctrl up}
-	}
-return
-
-$^+i::
-	if IsCapsLockOn() {
-		Sendinput, {Shift down}{Ctrl down}{Right down}
-		keywait, Right
-		Sendinput, {Right up}{Ctrl up}{Shift up}
-	}
-	else {
-		Sendinput, {Shift down}{Ctrl down}{i down}
-		keywait, i
-		Sendinput, {i up}{Ctrl up}{Shift up}
-	}
-return
-
-
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Up (u)
 
 $u::
-	if IsCapsLockOn()
-		SendInput, {Up}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{Up}
 	else
-		SendInput, u
-return
-
-$+u::
-	if IsCapsLockOn() {
-		Sendinput, {Shift down}{Up down}
-		keywait, Up
-		Sendinput, {Up up}{Shift up}
-	}
-	else {
-		Sendinput, {Shift down}{u down}
-		keywait, u
-		Sendinput, {u up}{Shift up}
-	}
-return
-
-
-$^u::
-	if IsCapsLockOn() {
-		Sendinput, {Ctrl down}{Up down}
-		keywait, Up
-		Sendinput, {Up up}{Ctrl up}
-	}
-	else {
-		Sendinput, {Ctrl down}{u down}
-		keywait, u
-		Sendinput, {u up}{Ctrl up}
-	}
-return
-
-
-$^+u::
-	if IsCapsLockOn() {
-		Sendinput, {Shift down}{Ctrl down}{Up down}
-		keywait, Up
-		Sendinput, {Up up}{Ctrl up}{Shift up}
-	}
-	else {
-		Sendinput, {Shift down}{Ctrl down}{u down}
-		keywait, u
-		Sendinput, {u up}{Ctrl up}{Shift up}
-	}
+		SendInput, {Blind}u
 return
 
 
@@ -219,312 +56,173 @@ return
 ;; Home (l)
 
 $l::
-	if IsCapsLockOn()
-		SendInput, {Home}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{Home}
 	else
-		SendInput, l
+		SendInput, {Blind}l
 return
-
-$+l::
-	if IsCapsLockOn() {
-		Sendinput, {Shift down}{Home down}
-		keywait, Home
-		Sendinput, {Home up}{Shift up}
-	}
-	else {
-		Sendinput, {Shift down}{l down}
-		keywait, l
-		Sendinput, {l up}{Shift up}
-	}
-return
-
-
-$^l::
-	if IsCapsLockOn() {
-		Sendinput, {Ctrl down}{Home down}
-		keywait, Home
-		Sendinput, {Home up}{Ctrl up}
-	}
-	else {
-		Sendinput, {Ctrl down}{l down}
-		keywait, l
-		Sendinput, {l up}{Ctrl up}
-	}
-return
-
-$^+l::
-	if IsCapsLockOn() {
-		Sendinput, {Shift down}{Ctrl down}{Home down}
-		keywait, Home
-		Sendinput, {Home up}{Ctrl up}{Shift up}
-	}
-	else {
-		Sendinput, {Shift down}{Ctrl down}{l down}
-		keywait, l
-		Sendinput, {l up}{Ctrl up}{Shift up}
-	}
-return
-
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; End (y)
 
 $y::
-	if IsCapsLockOn()
-		SendInput, {End}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{End}
 	else
-		SendInput, y
+		SendInput, {Blind}y
 return
 
-$+y::
-	if IsCapsLockOn() {
-		Sendinput, {Shift down}{End down}
-		keywait, End
-		Sendinput, {End up}{Shift up}
-	}
-	else {
-		Sendinput, {Shift down}{y down}
-		keywait, y
-		Sendinput, {y up}{Shift up}
-	}
-return
-
-$^y::
-	if IsCapsLockOn() {
-		Sendinput, {Ctrl down}{End down}
-		keywait, End
-		Sendinput, {End up}{Ctrl up}
-	}
-	else {
-		Sendinput, {Ctrl down}{y down}
-		keywait, y
-		Sendinput, {y up}{Ctrl up}
-	}
-return
-
-$^+y::
-	if IsCapsLockOn() {
-		Sendinput, {Shift down}{Ctrl down}{End down}
-		keywait, End
-		Sendinput, {End up}{Ctrl up}{Shift up}
-	}
-	else {
-		Sendinput, {Shift down}{Ctrl down}{y down}
-		keywait, y
-		Sendinput, {y up}{Ctrl up}{Shift up}
-	}
-return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Delete (;)
 
 $;::
-	if IsCapsLockOn()
-		SendInput, {Delete}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{Delete}
 	else
-		SendInput, `;
+		SendInput, {Blind}`;
 return
 
-$+;::
-	if IsCapsLockOn() {
-		Sendinput, {Shift down}{Delete down}
-		keywait, Delete
-		Sendinput, {Delete up}{Shift up}
-	}
-	else {
-		Sendinput, {Shift down}{`; down}
-		keywait, `;
-		Sendinput, {`; up}{Shift up}
-	}
-return
-
-$^;::
-	if IsCapsLockOn() {
-		Sendinput, {Ctrl down}{Delete down}
-		keywait, Delete
-		Sendinput, {Delete up}{Ctrl up}
-	}
-	else {
-		Sendinput, {Ctrl down}{`; down}
-		keywait, `;
-		Sendinput, {`; up}{Ctrl up}
-	}
-return
-
-$^+;::
-	if IsCapsLockOn() {
-		Sendinput, {Shift down}{Ctrl down}{Delete down}
-		keywait, Delete
-		Sendinput, {Delete up}{Ctrl up}{Shift up}
-	}
-	else {
-		Sendinput, {Shift down}{Ctrl down}{`; down}
-		keywait, `;
-		Sendinput, {`; up}{Ctrl up}{Shift up}
-	}
-return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Backspace (o)
 
 $o::
-	if IsCapsLockOn()
-		SendInput, {Backspace}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{Backspace}
 	else
-		SendInput, o
+		SendInput, {Blind}o
 return
 
-$+o::
-	if IsCapsLockOn() {
-		Sendinput, {Shift down}{Backspace down}
-		keywait, Backspace
-		Sendinput, {Backspace up}{Shift up}
-	}
-	else {
-		Sendinput, {Shift down}{o down}
-		keywait, o
-		Sendinput, {o up}{Shift up}
-	}
-return
-
-$^o::
-	if IsCapsLockOn() {
-		Sendinput, {Ctrl down}{Backspace down}
-		keywait, Backspace
-		Sendinput, {Backspace up}{Ctrl up}
-	}
-	else {
-		Sendinput, {Ctrl down}{o down}
-		keywait, o
-		Sendinput, {o up}{Ctrl up}
-	}
-return
-
-$^+o::
-	if IsCapsLockOn() {
-		Sendinput, {Shift down}{Ctrl down}{Backspace down}
-		keywait, Backspace
-		Sendinput, {Backspace up}{Ctrl up}{Shift up}
-	}
-	else {
-		Sendinput, {Shift down}{Ctrl down}{o down}
-		keywait, o
-		Sendinput, {o up}{Ctrl up}{Shift up}
-	}
-return
-
-
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; FN keys (1-0,-,=)
 
 
 $1::
-	if IsCapsLockOn()
-		SendInput, {F1}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{F1}
 	else
-		SendInput, 1
+		SendInput, {Blind}1
 return
 
 $2::
-	if IsCapsLockOn()
-		SendInput, {F2}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{F2}
 	else
-		SendInput, 2
+		SendInput, {Blind}2
 return
 
 $3::
-	if IsCapsLockOn()
-		SendInput, {F3}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{F3}
 	else
-		SendInput, 3
+		SendInput, {Blind}3
 return
 
 $4::
-	if IsCapsLockOn()
-		SendInput, {F4}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{F4}
 	else
-		SendInput, 4
+		SendInput, {Blind}4
 return
 
 $5::
-	if IsCapsLockOn()
-		SendInput, {F5}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{F5}
 	else
-		SendInput, 5
+		SendInput, {Blind}5
 return
 
 $6::
-	if IsCapsLockOn()
-		SendInput, {F6}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{F6}
 	else
-		SendInput, 6
+		SendInput, {Blind}6
 return
 
 $7::
-	if IsCapsLockOn()
-		SendInput, {F7}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{F7}
 	else
-		SendInput, 7
+		SendInput, {Blind}7
 return
 
 $8::
-	if IsCapsLockOn()
-		SendInput, {F8}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{F8}
 	else
-		SendInput, 8
+		SendInput, {Blind}8
 return
 
 $9::
-	if IsCapsLockOn()
-		SendInput, {F9}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{F9}
 	else
-		SendInput, 9
+		SendInput, {Blind}9
 return
 
 $0::
-	if IsCapsLockOn()
-		SendInput, {F10}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{F10}
 	else
-		SendInput, 0
+		SendInput, {Blind}0
 return
 
 $-::
-	if IsCapsLockOn()
-		SendInput, {F11}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{F11}
 	else
-		SendInput, -
+		SendInput, {Blind}-
 return
 
 $=::
-	if IsCapsLockOn()
-		SendInput, {F12}
+	if IsSecondLayerActive()
+		SendInput, {Blind}{F12}
 	else
-		SendInput, =
+		SendInput, {Blind}=
 return
 
 
-
 $CapsLock::
-	if IsCapsLockOn()
+	if IsSecondLayerActive()
 	{
-		SetCapsLockState, off
+		DeactivateSecondLayer()
 		HideIndicator()
 	}
    
 	else
 	{
-		SetCapsLockState, on
+		ActivateSecondLayer()
 		ShowIndicator()
 	}
 		
 return
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Layer functions
 
-IsCapsLockOn()
+
+IsSecondLayerActive()
 {
+	; If caps lock is on
 	return GetKeyState("CapsLock", "T") = 1
 }
+
+DeactivateSecondLayer()
+{
+	SetCapsLockState, off
+}
+
+ActivateSecondLayer()
+{
+	SetCapsLockState, on
+}
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; GUI
 
 
 ShowIndicator()
