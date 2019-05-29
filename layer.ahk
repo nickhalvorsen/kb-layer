@@ -2,202 +2,221 @@
 #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-
 #SingleInstance force
-
+Menu, Tray, Icon, %A_WorkingDir%\icon.ico
 SetKeyDelay, -1
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Left (n)
+; Short press caps lock will toggle second layer on or off
+; Long press/hold caps lock will toggle second layer on and off when released
+CapsLockHoldThreshold := 250
 
-$*n::
-	if IsSecondLayerActive()
+
+#If IsSecondLayerActive()
+
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	;; Left (n)
+
+	$*n::
 		; Avoid releasing modifiers with {Blind}
 		SendInput, {Blind}{Left}
-	else
-		SendInput, {Blind}n
-return
+	return
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Down (e)
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	;; Down (e)
 
-$*e::
-	if IsSecondLayerActive()
+	$*e::
 		SendInput, {Blind}{Down}
-	else
-		SendInput, {Blind}e
-return
+	return
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Right (i)
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	;; Right (i)
 
-$*i::
-	if IsSecondLayerActive()
+	$*i::
 		SendInput, {Blind}{Right}
-	else
-		SendInput, {Blind}i
-return
+	return
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Up (u)
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	;; Up (u)
 
-$*u::
-	if IsSecondLayerActive()
+	$*u::
 		SendInput, {Blind}{Up}
-	else
-		SendInput, {Blind}u
-return
+	return
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Home (l)
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	;; Home (l)
 
-$*l::
-	if IsSecondLayerActive()
+	$*l::
 		SendInput, {Blind}{Home}
-	else
-		SendInput, {Blind}l
-return
+	return
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; End (y)
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	;; End (y)
 
-$*y::
-	if IsSecondLayerActive()
+	$*y::
 		SendInput, {Blind}{End}
-	else
-		SendInput, {Blind}y
-return
+	return
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Delete (;)
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	;; Delete (;)
 
-$*;::
-	if IsSecondLayerActive()
+	$*;::
 		SendInput, {Blind}{Delete}
-	else
-		SendInput, {Blind}`;
-return
+	return
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Backspace (o)
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	;; Backspace (o)
 
-$*o::
-	if IsSecondLayerActive()
+	$*o::
 		SendInput, {Blind}{Backspace}
-	else
-		SendInput, {Blind}o
-return
+	return
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; FN keys (1-0,-,=)
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	;; FN keys (1-0,-,=)
 
 
-$*1::
-	if IsSecondLayerActive()
+	$*1::
 		SendInput, {Blind}{F1}
-	else
-		SendInput, {Blind}1
-return
+	return
 
-$*2::
-	if IsSecondLayerActive()
+	$*2::
 		SendInput, {Blind}{F2}
-	else
-		SendInput, {Blind}2
-return
+	return
 
-$*3::
-	if IsSecondLayerActive()
+	$*3::
 		SendInput, {Blind}{F3}
-	else
-		SendInput, {Blind}3
-return
+	return
 
-$*4::
-	if IsSecondLayerActive()
+	$*4::
 		SendInput, {Blind}{F4}
-	else
-		SendInput, {Blind}4
-return
+	return
 
-$*5::
-	if IsSecondLayerActive()
+	$*5::
 		SendInput, {Blind}{F5}
-	else
-		SendInput, {Blind}5
-return
+	return
 
-$*6::
-	if IsSecondLayerActive()
+	$*6::
 		SendInput, {Blind}{F6}
-	else
-		SendInput, {Blind}6
-return
+	return
 
-$*7::
-	if IsSecondLayerActive()
+	$*7::
 		SendInput, {Blind}{F7}
-	else
-		SendInput, {Blind}7
-return
+	return
 
-$*8::
-	if IsSecondLayerActive()
+	$*8::
 		SendInput, {Blind}{F8}
-	else
-		SendInput, {Blind}8
-return
+	return
 
-$*9::
-	if IsSecondLayerActive()
+	$*9::
 		SendInput, {Blind}{F9}
-	else
-		SendInput, {Blind}9
-return
+	return
 
-$*0::
-	if IsSecondLayerActive()
+	$*0::
 		SendInput, {Blind}{F10}
-	else
-		SendInput, {Blind}0
-return
+	return
 
-$*-::
-	if IsSecondLayerActive()
+	$*-::
 		SendInput, {Blind}{F11}
-	else
-		SendInput, {Blind}-
-return
+	return
 
-$*=::
-	if IsSecondLayerActive()
+	$*=::
 		SendInput, {Blind}{F12}
-	else
-		SendInput, {Blind}=
-return
+	return
 
+
+	; Suppress unused keys on the second layer
+	$q::
+	$+q::
+	$w::
+	$+w::
+	$f::
+	$+f::
+	$p::
+	$+p::
+	$j::
+	$+j::
+	$[::
+	$+[::
+	$]::
+	$+]::
+	$\::
+	$+\::
+	$a::
+	$+a::
+	$r::
+	$+r::
+	$s::
+	$+s::
+	$t::
+	$+t::
+	$d::
+	$+d::
+	$h::
+	$+h::
+	$'::
+	$+'::
+	$z::
+	$+z::
+	$x::
+	$+x::
+	$c::
+	$+c::
+	$v::
+	$+v::
+	$b::
+	$+b::
+	$k::
+	$+k::
+	$m::
+	$+m::
+	$,::
+	$+,::
+	$.::
+	$+.::
+	$/::
+	$+/::
+	return
+
+
+#If
+
+
+; todo: count caps as held even below threshold if another key is pressed when it is held down 
 
 $*CapsLock::
+
+	pressed := A_TickCount
+
 	if IsSecondLayerActive()
 	{
 		DeactivateSecondLayer()
-		HideIndicator()
 	}
-   
 	else
 	{
 		ActivateSecondLayer()
-		ShowIndicator()
 	}
-		
+
+	; prevent key repeat when held down
+	keywait, CapsLock
+
+	heldDuration := A_TickCount - pressed
+
+	; determine whether caps lock was pressed or held
+	if (heldDuration > CapsLockHoldThreshold) {
+		DeactivateSecondLayer()
+	}
+
 return
+
+
+
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -213,13 +232,14 @@ IsSecondLayerActive()
 DeactivateSecondLayer()
 {
 	SetCapsLockState, off
+	HideIndicator()
 }
 
 ActivateSecondLayer()
 {
 	SetCapsLockState, on
+	ShowIndicator()
 }
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; GUI
@@ -234,6 +254,9 @@ ShowIndicator()
 	Gui, Add, Text,, Layer 2 active
 	Gui, Show, % "x" A_ScreenWidth - 160 " yCenter NoActivate"
 }
+
+; WinSet, Transparent, [0-255]
+; image link: http://www.keyboard-layout-editor.com/#/gists/51e66997fa1eae7e0e6e37083c2dd682
 
 HideIndicator()
 {
