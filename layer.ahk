@@ -8,7 +8,7 @@ SetKeyDelay, -1
 
 ; Short press caps lock will toggle second layer on or off
 ; Long press/hold caps lock will toggle second layer on and off when released
-CapsLockHoldThreshold := 250
+CapsLockHoldThreshold := 140
 
 
 #If IsSecondLayerActive()
@@ -139,6 +139,8 @@ CapsLockHoldThreshold := 250
 	$+f::
 	$p::
 	$+p::
+	$g::
+	$+g::
 	$j::
 	$+j::
 	$[::
